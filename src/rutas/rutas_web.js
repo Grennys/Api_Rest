@@ -8,8 +8,23 @@ const myData = JSON.parse (data);
 //Libreria que nos falicita el manejo de los datos
 const under = require('underscore');
 
+//Listar productos
+rutas.get('/productos', (req, res) =>{            
+    
+    const dataString = JSON.stringify(myData);          
+    let array =  JSON.parse(dataString);    
+    var ArrayData = [];        
 
+    under.each(array, (producto,i) =>{             
+        ArrayData.push({
+            "nombre: ": producto.nombre, "sku: ": producto.sku, "precio: " : producto.precio,
+            "url: ": producto.url, "marca: ": producto.marca, "iva: ": producto.iva,
+            "iventario: ": producto.inventario
+        }); 
+    });              
+    res.json(ArrayData);
 
+});
 
 
 
