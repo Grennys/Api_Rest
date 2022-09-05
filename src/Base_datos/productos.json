@@ -1,0 +1,38 @@
+[
+    {
+        "sku": "1",
+        "nombre": "Zapatos deportivos",
+        "precio": 40000,
+        "url": "/images/feet.jpg",
+        "marca": "Nike",
+        "descripcion": "Zapatos deportivos especiales para tus días de ejercicios. Son cómodos y flexibles, con suela de gamo que ofrece mayor adherencia",
+        "iva": 0.18,
+        "descuento": 0.2,
+        "inventario": 5,
+        "fecha_creacion": "2022-08-31"
+    },
+    {
+        "sku": "2",
+        "nombre": "Camisas deportivos",
+        "precio": 30000,
+        "url": "/images/feet.jpg",
+        "marca": "Nike",
+        "descripcion": "Zapatos deportivos especiales para tus días de ejercicios. Son cómodos y flexibles, con suela de gamo que ofrece mayor adherencia",
+        "iva": 0.18,
+        "descuento": 0.2,
+        "inventario": 5,
+        "fecha_creacion": "2022-08-31"
+    },
+    {
+        "sku": "3",
+        "nombre": "Pantaloneta deportivos",
+        "precio": 50000,
+        "url": "/images/feet.jpg",
+        "marca": "Nike",
+        "descripcion": "Zapatos deportivos especiales para tus días de ejercicios. Son cómodos y flexibles, con suela de gamo que ofrece mayor adherencia",
+        "iva": 0.18,
+        "descuento": 0.2,
+        "inventario": 5,
+        "fecha": "5/9/2022"
+    }
+]

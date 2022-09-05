@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "nombre": "Jairo",
+        "apellido": "Pimentel",
+        "total": 439142,
+        "productos": [
+        "1", "2"
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Oscar",
+        "apellido": "Pimentel",
+        "total": 439142,
+        "productos": [
+        "1", "1"
+        ]
+    }
+        
+]
