@@ -10,8 +10,15 @@ const under = require('underscore');
 
 
 
-
-
+//Consultar productos por sku
+rutas.get('/productos/:sku', (req, res ) => {    
+    const { sku } = req.params;    
+    under.each(myData, (producto,i) =>{
+        if(producto.sku == sku){                
+            res.json(producto);        
+        }             
+    });     
+});
 
 
 module.exports = rutas;
