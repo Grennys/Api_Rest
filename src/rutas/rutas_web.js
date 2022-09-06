@@ -9,6 +9,29 @@ const myData = JSON.parse (data);
 const under = require('underscore');
 
 
+let Nprodcuto = myData;
+
+
+
+//Post agregar un producto
+rutas.post('/productos', (req, res ) => {  
+    var date = new Date(); 
+    var fecha = date.toLocaleDateString();   
+    const { sku, nombre,precio,url,marca,descripcion,iva,descuento,inventario } = req.body;    
+    if ( sku && nombre && precio && url && marca && descripcion && iva && descuento && inventario ) {                
+        let NuevoP = {
+            sku,nombre,precio, url, marca, descripcion, iva, descuento, inventario, fecha
+        };
+        Nprodcuto.push(NuevoP);
+        const nuevoP_json =  JSON.stringify(Nprodcuto);
+        fs.writeFileSync('src/Base_datos/productos.json', nuevoP_json, 'utf-8');
+        res.send('¡Se insertó el producto satisfactoriamente!');
+    } else {
+        res.status(500).json({error: 'Todos los campos son requeridos.'});
+    }
+});
+
+
 
 
 //Consultar productos por sku
@@ -38,6 +61,7 @@ rutas.get('/productos', (req, res) =>{
     res.json(ArrayData);
 
 });
+
 
 
 
