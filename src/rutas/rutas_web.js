@@ -45,8 +45,11 @@ rutas.put('/productos/:id', (req, res ) => {
         const nuevoP_json =  JSON.stringify(Nprodcuto);
         fs.writeFileSync('src/Base_datos/productos.json', nuevoP_json, 'utf-8');{
             res.send('El producto se actualizo satisfactoriamente');
-        }             
-
+        }            
+    } else {
+        res.status(500).json({error: 'Todos los campos son requeridos.'});
+    }           
+});
 
 //Ordenes de compra
 rutas.get('/ordenes', (req, res) =>{       
@@ -65,13 +68,7 @@ rutas.get('/ordenes', (req, res) =>{
             }                          
         });        
     });          
-    res.json(arrayCompra);
-    
-});
-
-    } else {
-        res.status(500).json({error: 'Todos los campos son requeridos.'});
-    }           
+    res.json(arrayCompra);    
 });
 
 //Post agregar un producto
@@ -120,7 +117,6 @@ rutas.get('/productos', (req, res) =>{
         }); 
     });              
     res.json(ArrayData);
-
 });
 
 
