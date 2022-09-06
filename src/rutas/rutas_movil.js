@@ -15,6 +15,29 @@ rutas.get('/producto/:sku', (req, res) =>{
     let array =  JSON.parse(dataString);    
     var ArrayData = [];        
 
+
+//Resumen de compra
+rutas.post('/resumen', (req, res ) => {      
+    
+    let ArrayResumen = [];    
+    let precio_final = 0;
+    let total_compra = 0;
+
+    under.each(myData, (producto,i) =>{    
+        under.each(req.body, (sku, i) => {
+            if(producto.sku == sku){                   
+                precio_final = (producto.precio - (producto.precio * producto.descuento) + (producto.precio + producto.iva));
+                total_compra =  precio_final + total_compra;            
+                ArrayResumen.push({
+                    "sku:": producto.sku, "Nombre: ": producto.nombre, "Precio_final": precio_final,"total_compra: ": total_compra            
+                });                         
+            }                          
+        });
+    });         
+    res.json(ArrayResumen);
+    
+});
+
     under.each(array, (producto,i) =>{     
         precio_final = (producto.precio - (producto.precio * producto.descuento) + (producto.precio + producto.iva));        
         if(producto.sku == sku){
@@ -35,6 +58,7 @@ rutas.get('/producto', (req, res) =>{
     let array =  JSON.parse(dataString);    
     var ArrayData = [];    
     let precio_final = 0;
+
 
     under.each(array, (producto,i) =>{     
         precio_final = (producto.precio - (producto.precio * producto.descuento) + (producto.precio + producto.iva));
