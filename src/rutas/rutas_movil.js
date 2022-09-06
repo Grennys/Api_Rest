@@ -45,6 +45,7 @@ rutas.post('/comprar', (req, res ) => {
         res.status(500).json({error: 'Todos los campos son requeridos.'});
     } 
     
+});
 
 //Consultar productos
 rutas.get('/producto/:sku', (req, res) =>{            
@@ -54,7 +55,22 @@ rutas.get('/producto/:sku', (req, res) =>{
     var ArrayData = [];        
 
 
-//Resumen de compra
+
+
+    under.each(array, (producto,i) =>{     
+        precio_final = (producto.precio - (producto.precio * producto.descuento) + (producto.precio + producto.iva));        
+        if(producto.sku == sku){
+            ArrayData.push({
+                "sku: ": producto.sku,"Nombre: ": producto.nombre, "Precio: ": producto.precio, 
+                "Url: ": producto.url, "Marca: ": producto.marca, "Descripción: ": producto.descripcion,
+                "Iva: ": producto.iva, "Desceunto: ": producto.descuento,"precio final: ": precio_final
+            });
+        }        
+    });                  
+    res.json(ArrayData);        
+});
+    
+    //Resumen de compra
 rutas.post('/resumen', (req, res ) => {      
     
     let ArrayResumen = [];    
@@ -74,19 +90,6 @@ rutas.post('/resumen', (req, res ) => {
     });         
     res.json(ArrayResumen);
     
-});
-
-    under.each(array, (producto,i) =>{     
-        precio_final = (producto.precio - (producto.precio * producto.descuento) + (producto.precio + producto.iva));        
-        if(producto.sku == sku){
-            ArrayData.push({
-                "sku: ": producto.sku,"Nombre: ": producto.nombre, "Precio: ": producto.precio, 
-                "Url: ": producto.url, "Marca: ": producto.marca, "Descripción: ": producto.descripcion,
-                "Iva: ": producto.iva, "Desceunto: ": producto.descuento,"precio final: ": precio_final
-            });
-        }        
-    });                  
-    res.json(ArrayData);        
 });
 
 //Listar producto
