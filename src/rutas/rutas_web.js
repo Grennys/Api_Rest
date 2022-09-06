@@ -8,6 +8,19 @@ const myData = JSON.parse (data);
 //Libreria que nos falicita el manejo de los datos
 const under = require('underscore');
 
+
+
+
+//Consultar productos por sku
+rutas.get('/productos/:sku', (req, res ) => {    
+    const { sku } = req.params;    
+    under.each(myData, (producto,i) =>{
+        if(producto.sku == sku){                
+            res.json(producto);        
+        }             
+    });     
+});
+
 //Listar productos
 rutas.get('/productos', (req, res) =>{            
     
@@ -25,6 +38,7 @@ rutas.get('/productos', (req, res) =>{
     res.json(ArrayData);
 
 });
+
 
 
 
