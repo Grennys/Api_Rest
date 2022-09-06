@@ -47,6 +47,28 @@ rutas.put('/productos/:id', (req, res ) => {
             res.send('El producto se actualizo satisfactoriamente');
         }             
 
+
+//Ordenes de compra
+rutas.get('/ordenes', (req, res) =>{       
+    const fs = require('fs');    
+    const data = fs.readFileSync('src/Base_datos/ordenes.json');
+    const myOrdenes = JSON.parse (data);                  
+    
+    let arrayCompra = [];    
+
+    under.each(myOrdenes, (orden,i) =>{            
+        under.each(myData, (producto, j) => {
+            if(orden.productos[i] = producto.sku  ){       
+                arrayCompra.push({
+                    orden,"Nombre":producto.nombre, "Sku":producto.sku, "marca":producto.marca,"url": producto.url    
+                }); 
+            }                          
+        });        
+    });          
+    res.json(arrayCompra);
+    
+});
+
     } else {
         res.status(500).json({error: 'Todos los campos son requeridos.'});
     }           
@@ -110,6 +132,7 @@ rutas.delete('/productos/:sku', (req, res ) => {
     fs.writeFileSync('src/Base_datos/productos.json', nuevoP_json);
     res.send('¡Se eliminó el producto satisfactoriamente!');
 });
+
 
 
 module.exports = rutas;
