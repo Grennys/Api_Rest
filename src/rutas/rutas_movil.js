@@ -5,6 +5,10 @@ const fs = require('fs');
 const data = fs.readFileSync('src/Base_datos/productos.json');
 const myData = JSON.parse (data);
 
+//Leemos el archivo ordenes.json
+const dataOrdenes = fs.readFileSync('src/Base_datos/ordenes.json');
+const myOrdenes = JSON.parse(dataOrdenes);
+
 //Libreria que nos falicita el manejo de los datos
 const under = require('underscore');
 
