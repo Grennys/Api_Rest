@@ -1,11 +1,26 @@
+
 # Api_Rest
-Reto Ciclo 2
 
-Para el uso correcto y prueba de este proyecto debemos tener la siguientes herramientas
+RETO CICLO #2
 
-Node.js Editor de código. Postman
+Para el uso correcto y prueba correcta de este proyecto tenga en encuenta 
 
-Después de tener estas herramienta desde editor de código abra la carpeta del proyecto , abra un terminal integrada y instale lo siguientes módulos. npm install express morgan npm install nodemon -D
+# Herramientas 
+Node.js, Editor de código y Postman
 
-Por ultimo ejecutar en por el comando "npm run dev" para ejecutar el servicio
+# Installation
+```
+git clone 
+npm install express morgan
+npm nodemon -D
+npm run dev
+```
+
+# Correr el servidor
+```
+npm run dev
+```
+
+
+
 
